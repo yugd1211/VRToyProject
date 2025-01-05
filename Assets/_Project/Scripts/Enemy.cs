@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
 	public float attackRate = 1f;
 	public int score = 5;
 	private Animator _animator;
+
+	[HideInInspector] public EnemySpawner enemySpawner;
 	
 	// public 
 	
@@ -53,6 +55,7 @@ public class Enemy : MonoBehaviour
 		ps.Play();
 		Destroy(ps.gameObject, ps.main.duration);
 		GameManager.Instance.score += this.score;
+		enemySpawner.enemies.Remove(this);
 		Instantiate(ptsPrefab, transform.position + Vector3.up, Quaternion.identity);
 	}
 

@@ -704,7 +704,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6983618525852185880}
@@ -777,7 +777,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1.7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 1000000
@@ -809,7 +809,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.26
-  m_Height: 0.66957575
+  m_Height: 0.75
   m_Direction: 1
   m_Center: {x: 0, y: 0.33830807, z: 0}
 --- !u!114 &6028442771017206111
@@ -827,10 +827,11 @@ MonoBehaviour:
   deathEffect: {fileID: 198263761934930744, guid: 6207419aac792074faf1eb096cc6309d, type: 3}
   ptsPrefab: {fileID: 3876655600655417852, guid: 471f9b4cdb091d349837e681c821247c, type: 3}
   health: {fileID: 0}
-  maxHp: 10
-  attackDamage: 15
-  attackRate: 1
+  maxHp: 6
+  attackDamage: 10
+  attackRate: 2
   score: 30
+  enemySpawner: {fileID: 0}
 --- !u!114 &-6262930985979386702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,8 +844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf4422a96e80340a6ef99d44a3cbdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
-  hp: 10
+  maxHp: 6
+  hp: 6
 --- !u!136 &-4087291189639579426
 CapsuleCollider:
   m_ObjectHideFlags: 0

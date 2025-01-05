@@ -9,18 +9,34 @@ public partial class GameManager : MonoBehaviour
 	public bool isGameOver;
 	
 	private EnemySpawner _enemySpawner;
+	public GameObject gameWinObject;
+	public GameObject startGameObject;
+	public GameObject selectModeObject;
 	
 	private void Start()
 	{
 		baseCamp.health.OnDeath += GameOver;
 		currentWave = 1;
 		_enemySpawner = FindObjectOfType<EnemySpawner>();
-		_enemySpawner.SpawnWave(currentWave);
 	}
 
 	public void GameOver()
 	{
 		isGameOver = true;
+	}
+	
+	public void Win()
+	{
+		isGameOver = true;
+		gameWinObject.SetActive(true);
+		// selectModeObject.SetActive(true);
+	}
+	
+	public void GameStart()
+	{
+		isGameOver = false;		
+		currentWave = 1;
+		_enemySpawner.SpawnWave(currentWave);
 	}
 }
 
