@@ -4,6 +4,7 @@ public class BaseCamp : MonoBehaviour
 {
 	public Health health;
 	public float maxHp = 100f;
+	public GameObject gate;
 
 	private void Awake()
 	{
@@ -19,7 +20,7 @@ public class BaseCamp : MonoBehaviour
 	
 	public void Die()
 	{
-		Debug.Log("BaseCamp Destroyed");
-		// Destroy(gameObject);
+		Destroy(gameObject);
+		Destroy(gate);
 	}
 }

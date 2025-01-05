@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
+	public bool isLookAtCamera = true;
 	private Slider _slider;
 	private Health _health;
 
@@ -18,6 +19,7 @@ public class HPBar : MonoBehaviour
 		_slider.value = _health.hp / _health.maxHp;
 		
 		// 방향을 항상 카메라를 바라보게 함
-		transform.LookAt(Camera.main.transform);
+		if (isLookAtCamera)
+			transform.LookAt(Camera.main.transform);
 	}
 }

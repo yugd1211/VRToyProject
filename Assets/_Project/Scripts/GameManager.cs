@@ -6,6 +6,7 @@ public partial class GameManager : MonoBehaviour
 	public int currentWave;
 	public int maxWave;
 	public int score;
+	public bool isGameOver;
 	
 	private EnemySpawner _enemySpawner;
 	
@@ -19,7 +20,7 @@ public partial class GameManager : MonoBehaviour
 
 	public void GameOver()
 	{
-		print("Game Over");
+		isGameOver = true;
 	}
 }
 
@@ -38,5 +39,6 @@ public partial class GameManager
 		{
 			Destroy(gameObject);
 		}
+		isGameOver = false;
 	}
 }

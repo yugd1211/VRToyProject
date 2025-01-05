@@ -585,9 +585,10 @@ GameObject:
   - component: {fileID: 644027910916855787}
   - component: {fileID: 7416841827033409389}
   - component: {fileID: 9165535137218041895}
-  - component: {fileID: 3364716405132727714}
-  - component: {fileID: -8608827519513682549}
   - component: {fileID: -6927670793248561919}
+  - component: {fileID: 3364716405132727714}
+  - component: {fileID: 7108034784719278099}
+  - component: {fileID: 6660923084636260160}
   m_Layer: 0
   m_Name: Muskrat
   m_TagString: Untagged
@@ -667,6 +668,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &-6927670793248561919
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4950779065795438720}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 1000000
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &3364716405132727714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,12 +704,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 198263761934930744, guid: 6207419aac792074faf1eb096cc6309d, type: 3}
   ptsPrefab: {fileID: 3876655600655417852, guid: 471f9b4cdb091d349837e681c821247c, type: 3}
-  Health: {fileID: 0}
+  health: {fileID: 0}
   maxHp: 1
   attackDamage: 5
   attackRate: 1
   score: 5
---- !u!114 &-8608827519513682549
+--- !u!114 &7108034784719278099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -700,28 +723,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 1
   hp: 1
---- !u!195 &-6927670793248561919
-NavMeshAgent:
+--- !u!136 &6660923084636260160
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4950779065795438720}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_AgentTypeID: 0
+  serializedVersion: 2
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7460354150513945985
 GameObject:
   m_ObjectHideFlags: 0

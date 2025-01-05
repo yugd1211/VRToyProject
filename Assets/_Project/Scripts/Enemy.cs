@@ -1,16 +1,19 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
 	public ParticleSystem deathEffect;
 	public GameObject ptsPrefab;
-	public Health Health = new Health();
+	[SerializeField] private Health health;
 	public float maxHp = 1f;
 	public float attackDamage = 5f;
 	public float attackRate = 1f;
 	public int score = 5;
+	private Animator _animator;
 	
 	// public 
 	
@@ -18,9 +21,19 @@ public class Enemy : MonoBehaviour
 	private void Awake()
 	{
 		_agent = GetComponent<NavMeshAgent>();
-		Health = GetComponent<Health>();
-		Health.Init(maxHp);
-		Health.OnDeath += Die;
+		_animator = GetComponent<Animator>();
+		health = GetComponent<Health>();
+		health.Init(maxHp);
+		health.OnDeath += Die;
+	}
+
+	private void Update()
+	{
+		if (GameManager.Instance.isGameOver)
+		{
+			_agent.isStopped = true;
+			_animator.SetBool("Win", true);
+		}
 	}
 
 	private void Start()
@@ -30,7 +43,7 @@ public class Enemy : MonoBehaviour
 	
 	public void TakeDamage(float damage)
 	{
-		Health.TakeDamage(damage);
+		health.TakeDamage(damage);
 	}
 
 	public void Die()
@@ -45,8 +58,10 @@ public class Enemy : MonoBehaviour
 
 	public void OnCollisionEnter(Collision other)
 	{
+		if (GameManager.Instance.isGameOver) return;
 		if (other.collider.TryGetComponent(out BaseCamp baseCamp))
 		{
+			_animator.SetBool("Attack", true);
 			StartCoroutine(AttackCoroutine());
 		}
 	}
@@ -63,9 +78,11 @@ public class Enemy : MonoBehaviour
 	{
 		while (true)
 		{
+			if (GameManager.Instance.isGameOver)
+			{
+				yield break;
+			}
 			yield return new WaitForSeconds(attackRate);
-			// aniation.attack 실행해야함
-			print($"Attack {Vector3.Distance(transform.position, GameManager.Instance.baseCamp.transform.position)}");
 			if (Vector3.Distance(transform.position, GameManager.Instance.baseCamp.transform.position) < 1f)
 			{
 				GameManager.Instance.baseCamp.TakeDamage(attackDamage);

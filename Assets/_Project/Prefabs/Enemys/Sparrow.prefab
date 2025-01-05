@@ -682,10 +682,11 @@ GameObject:
   - component: {fileID: 6788538757290762322}
   - component: {fileID: 6788538757290762321}
   - component: {fileID: 6788538757290762327}
+  - component: {fileID: -5233685485132612734}
   - component: {fileID: 6788538757290762320}
   - component: {fileID: 6028442771017206111}
-  - component: {fileID: -5694821332487277684}
-  - component: {fileID: -5233685485132612734}
+  - component: {fileID: -6262930985979386702}
+  - component: {fileID: -4087291189639579426}
   m_Layer: 0
   m_Name: Sparrow
   m_TagString: Untagged
@@ -766,6 +767,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &-5233685485132612734
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788538757290762323}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 1000000
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!136 &6788538757290762320
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -803,12 +826,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 198263761934930744, guid: 6207419aac792074faf1eb096cc6309d, type: 3}
   ptsPrefab: {fileID: 3876655600655417852, guid: 471f9b4cdb091d349837e681c821247c, type: 3}
-  Health: {fileID: 0}
+  health: {fileID: 0}
   maxHp: 10
   attackDamage: 15
   attackRate: 1
   score: 30
---- !u!114 &-5694821332487277684
+--- !u!114 &-6262930985979386702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -822,28 +845,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 10
   hp: 10
---- !u!195 &-5233685485132612734
-NavMeshAgent:
+--- !u!136 &-4087291189639579426
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6788538757290762323}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_AgentTypeID: 0
+  serializedVersion: 2
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6788538757856321312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,6 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642dbabd731842b4e90efea8c9d7351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLookAtCamera: 1
 --- !u!1 &8900267630600576476
 GameObject:
   m_ObjectHideFlags: 0

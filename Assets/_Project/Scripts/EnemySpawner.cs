@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
 	private IEnumerator SpawnEnemy()
 	{
-		while (spawnCount-- > 0)
+		while (spawnCount-- > 0 && !GameManager.Instance.isGameOver)
 		{
 			Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 			Enemy enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
@@ -35,6 +35,8 @@ public class EnemySpawner : MonoBehaviour
 	}
 	public void SpawnWave(int currentWave)
 	{
+		if (GameManager.Instance.isGameOver)
+			return;
 		spawnCount = 10 + (currentWave * 3);
 		StartCoroutine(SpawnEnemy());
 	}
